@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ExecOptionsWithStringEncoding } from 'node:child_process';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +6,26 @@ import { ExecOptionsWithStringEncoding } from 'node:child_process';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Output("searchItems") list = new EventEmitter();
-  public tips?: string;
+  @Output("IDNumbers") list = new EventEmitter();
+  public tips: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   getList(listOfIDS: string[]) {
-    this.list.emit(listOfIDS);
+    this.tips = "";
+
+    let valid: number[] = [];
+    listOfIDS.forEach((element) => {
+      let match = element.match(/[0-9]+/g);
+      if(match != null) {
+        valid.push(parseInt(match[0]));
+      } else {
+        this.tips = "Type only numbers seperated by comma";
+      }
+    });
+    this.list.emit(valid);
   }
 }

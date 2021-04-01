@@ -20,7 +20,7 @@ export class SearchBarComponent implements OnInit {
     if(listOfArticleIDs[0] != "") {
       this.searchList.emit(listOfArticleIDs);
     }
-    console.log(listOfArticleIDs[0]);
+    console.log(listOfArticleIDs);
     
     input.value = "";
   }
