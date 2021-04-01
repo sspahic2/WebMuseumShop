@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output("IDNumbers") list = new EventEmitter();
+  
   public tips: string = "";
 
   constructor() { }
@@ -18,14 +19,22 @@ export class HeaderComponent implements OnInit {
     this.tips = "";
 
     let valid: number[] = [];
+
     listOfIDS.forEach((element) => {
+
       let match = element.match(/[0-9]+/g);
+
       if(match != null) {
+
         valid.push(parseInt(match[0]));
+
       } else {
+
         this.tips = "Type only numbers seperated by comma";
+
       }
     });
+
     this.list.emit(valid);
   }
 }
