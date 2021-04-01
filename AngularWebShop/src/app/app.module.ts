@@ -8,6 +8,7 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LogoComponent } from './components/header/logo/logo.component';
+import { SearchBarComponent } from './components/header/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LogoComponent } from './components/header/logo/logo.component';
     ArticleDetailsComponent,
     HeaderComponent,
     FooterComponent,
-    LogoComponent
+    LogoComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
