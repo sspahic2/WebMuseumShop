@@ -7,7 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output("IDNumbers") list = new EventEmitter();
-  
+
   public tips: string = "";
 
   constructor() { }
@@ -25,8 +25,10 @@ export class HeaderComponent implements OnInit {
       let match = element.match(/[0-9]+/g);
 
       if(match != null) {
-
-        valid.push(parseInt(match[0]));
+        match.forEach(numberMatch => {
+          valid.push(parseInt(numberMatch));
+        });
+        
 
       } else {
 
@@ -35,6 +37,7 @@ export class HeaderComponent implements OnInit {
       }
     });
 
+    console.log(valid);
     this.list.emit(valid);
   }
 }
