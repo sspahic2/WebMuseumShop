@@ -12,16 +12,14 @@
 
             <div class="col">
                 
-                <app-search-bar (Searchables)="getList($event)"></app-search-bar>
+                <app-search-bar (Searchables)="list.emit($event)"></app-search-bar>
 
             </div>
 
         </div>
 
         <div class="row">
-            <div class="col">
-                <p *ngIf="tips">{{ tips }}</p>
-            </div>
+            &nbsp;
         </div>
     </div>
 </div>

@@ -9,6 +9,7 @@ export class AppComponent {
   
   IDlist?: number[];
   onRecievedList(list: number[]) {
-    this.IDlist = list;
+    this.IDlist = [... new Set(list)];
+    console.log(this.IDlist);
   }
 }
